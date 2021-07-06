@@ -52,6 +52,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  add_asset_input_div: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  add_asset_input_div_close_button: {
+    color: "white",
+  },
 }));
 
 export default useStyles;

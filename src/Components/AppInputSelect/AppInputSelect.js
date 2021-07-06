@@ -34,7 +34,7 @@ export default ({ options }) => {
         onChange={handleChange}
       >
         {options
-          ? options.map(({ coinName }) => {
+          ? options.map((coinName) => {
               return (
                 <MenuItem value={coinName} className={classes.option}>
                   {coinName}
