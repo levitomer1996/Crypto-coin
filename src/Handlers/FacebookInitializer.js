@@ -65,18 +65,20 @@ const FacebookInitializer = ({ children }) => {
     );
   } else {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "cloumn",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <CircularProgress
-          style={{ color: "#d650d5", height: "200px", width: "200px" }}
-        />
-      </div>
+      // <div
+      //   style={{
+      //     display: "flex",
+      //     flexDirection: "cloumn",
+      //     alignItems: "center",
+      //     justifyContent: "center",
+      //   }}
+      // >
+      //   <CircularProgress
+      //     style={{ color: "#d650d5", height: "200px", width: "200px" }}
+      //   />
+
+      // </div>
+      <>{children}</>
     );
   }
 };

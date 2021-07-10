@@ -1,0 +1,17 @@
+.addAssetPageRoot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.text_div {
+  padding: 20;
+}
+.addassetpagebutton {
+  background: linear-gradient(to bottom left, #344675, #263148, #344675);
+  color: white;
+}
+.button_div {
+  padding-bottom: 20px;
+}
