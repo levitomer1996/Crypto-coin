@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, Typography } from "@material-ui/core";
-
+import useGoogleLogin from "./useGoogleLogin";
+import AuthContext from "../../Context/AuthContex";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
@@ -13,8 +14,11 @@ const useStyles = makeStyles(() => ({
   },
   googleIcon: { width: 30, height: 30 },
 }));
+
 const GoogleLoginButton = () => {
+  const { Signin_Google } = useContext(AuthContext);
   const classes = useStyles();
+  const [signIn] = useGoogleLogin();
   return (
     <Button
       variant="outlined"
@@ -25,6 +29,7 @@ const GoogleLoginButton = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
         />
       }
+      onClick={() => signIn()}
     >
       {" "}
       <Typography

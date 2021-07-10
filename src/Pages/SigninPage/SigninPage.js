@@ -12,7 +12,7 @@ const SigninPage = () => {
   return (
     <div className={"signinpage_root"}>
       {authState.isLogged ? <Redirect to="/" /> : null}
-      <AppPaper style={{ width: "30%" }}>
+      <AppPaper>
         {" "}
         <img
           className={"icon_img"}

@@ -2,12 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../Context/AuthContex";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Redirect } from "react-router-dom";
-const FacebookInitializer = ({ children }) => {
+import useGoogleLogin from "../Components/GoogleLoginButton.js/useGoogleLogin";
+const AppInitializer = ({ children }) => {
   const { Signin_Facebook, Signout } = useContext(AuthContext);
   const [isInitialized, setIsInitialized] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [googleSignIn] = useGoogleLogin();
   const Initialize = () => {
     return new Promise((resolve) => {
+      //trying to initialize facebook , checks if a user is already signed in.
       window.fbAsyncInit = function () {
         window.FB.init({
           appId: "521522588999462",
@@ -29,11 +32,16 @@ const FacebookInitializer = ({ children }) => {
               }
             );
           } else if (response.status === "not_authorized") {
+            console.log("Not Connected to facebook");
+
+            googleSignIn();
             setRedirect(true);
-            resolve(Signout);
+            resolve();
           } else {
+            console.log("Not Connected to facebook");
+            googleSignIn();
             setRedirect(true);
-            resolve(Signout);
+            resolve();
           }
         });
       };
@@ -57,29 +65,22 @@ const FacebookInitializer = ({ children }) => {
   }, []);
 
   if (isInitialized) {
-    return (
-      <div>
-        {redirect ? <Redirect to="login" /> : null}
-        {children}
-      </div>
-    );
+    return <div>{children}</div>;
   } else {
     return (
-      // <div
-      //   style={{
-      //     display: "flex",
-      //     flexDirection: "cloumn",
-      //     alignItems: "center",
-      //     justifyContent: "center",
-      //   }}
-      // >
-      //   <CircularProgress
-      //     style={{ color: "#d650d5", height: "200px", width: "200px" }}
-      //   />
-
-      // </div>
-      <>{children}</>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "cloumn",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress
+          style={{ color: "#d650d5", height: "200px", width: "200px" }}
+        />
+      </div>
     );
   }
 };
-export default FacebookInitializer;
+export default AppInitializer;

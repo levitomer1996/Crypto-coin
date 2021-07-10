@@ -1,15 +1,19 @@
 import React, { useContext, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import AuthContext from "../Context/AuthContex";
-import FacebookInitializer from "../Handlers/FacebookInitializer";
+import AppInitializer from "../Handlers/AppInitializer";
 import AddAssetPage from "./AddAssetPage/AddAssetPage";
 import SigninPage from "./SigninPage/SigninPage";
+import useGoogleLogout from "../Components/GoogleLoginButton.js/useGoogleLogout";
 
 const Main = () => {
   const { authState } = useContext(AuthContext);
-  useEffect(() => {}, []);
+  const [signOutGoogle] = useGoogleLogout();
+  useEffect(() => {
+    signOutGoogle();
+  }, []);
   return (
-    <FacebookInitializer>
+    <AppInitializer>
       <div>
         <Switch>
           <Route exact path="/login">
@@ -20,7 +24,7 @@ const Main = () => {
           </Route>
         </Switch>
       </div>
-    </FacebookInitializer>
+    </AppInitializer>
   );
 };
 

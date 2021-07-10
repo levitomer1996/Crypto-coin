@@ -20,12 +20,24 @@ const AddAssetTextField = (props) => {
   const { textfieldStyle } = props;
   const [inputVal, setInputVal] = useState("");
   const [menuItemList, setMenuItemList] = useState([]);
-
+  const testList = ["Tomer", "Joy", "Yonatan", "Tomas"];
   useEffect(async () => {
-    setTimeout(() => {
-      console.log(findStringInArray(inputVal, coinList));
-      setMenuItemList(findStringInArray(inputVal, coinList));
-    }, 2000);
+    let newList = [];
+    console.log(inputVal);
+    setMenuItemList([]);
+    if (inputVal !== "") {
+      for (let i = 0; i < coinList.length; i++) {
+        if (
+          coinList[i]
+            .toLocaleUpperCase()
+            .startsWith(inputVal.toLocaleUpperCase())
+        ) {
+          console.log(coinList[i].toLocaleUpperCase());
+          newList = [...newList, coinList[i]];
+        }
+      }
+      setMenuItemList(newList);
+    }
   }, [inputVal]);
 
   return (
@@ -38,7 +50,7 @@ const AddAssetTextField = (props) => {
         variant="outlined"
         onChange={(e) => setInputVal(e.target.value)}
       />
-      <div style={{ maxHeight: "40%" }}>
+      <div>
         <List>
           {menuItemList.map((item) => {
             return (
