@@ -4,11 +4,13 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { Redirect } from "react-router-dom";
 import useGoogleLogin from "../Components/GoogleLoginButton.js/useGoogleLogin";
 const AppInitializer = ({ children }) => {
-  const { Signin_Facebook, Signout } = useContext(AuthContext);
-  const [isInitialized, setIsInitialized] = useState(false);
-  const [redirect, setRedirect] = useState(false);
-  const [googleSignIn] = useGoogleLogin();
-  const Initialize = () => {
+  const { Signin_Facebook, Signin_Google, Signout, authState } =
+    useContext(AuthContext);
+  const [IsIntialized, setIsInitialized] = useState(false);
+  //Facebook
+  const [is_logged_in_to_facebook, setIsLoggedToFacebook] = useState(false);
+
+  const FacebookInitialize = () => {
     return new Promise((resolve) => {
       //trying to initialize facebook , checks if a user is already signed in.
       window.fbAsyncInit = function () {
@@ -18,9 +20,7 @@ const AppInitializer = ({ children }) => {
           xfbml: true,
           version: "v11.0",
         });
-
         window.FB.AppEvents.logPageView();
-
         window.FB.getLoginStatus(function (response) {
           if (response.status === "connected") {
             window.FB.api(
@@ -28,19 +28,20 @@ const AppInitializer = ({ children }) => {
               "GET",
               {},
               function (res) {
+                console.log("Connected to face");
+                setIsLoggedToFacebook(true);
                 resolve(Signin_Facebook(res));
               }
             );
           } else if (response.status === "not_authorized") {
+            setIsLoggedToFacebook(false);
             console.log("Not Connected to facebook");
-
-            googleSignIn();
-            setRedirect(true);
+            Signout();
             resolve();
           } else {
             console.log("Not Connected to facebook");
-            googleSignIn();
-            setRedirect(true);
+            setIsLoggedToFacebook(false);
+            Signout();
             resolve();
           }
         });
@@ -59,13 +60,34 @@ const AppInitializer = ({ children }) => {
       })(document, "script", "facebook-jssdk");
     });
   };
+
+  //Google
+
+  const [signInToGoogle] = useGoogleLogin();
+  const [is_logged_in_To_google, setIsLoggedInToGoogle] = useState(false);
+  const GoogleInitializer = () => {
+    return new Promise((res) => {
+      signInToGoogle();
+      setIsLoggedInToGoogle(true);
+      res();
+    });
+  };
+  const [redirect, setRedirect] = useState(false);
   useEffect(async () => {
-    await Initialize();
+    await FacebookInitialize();
+    if (!is_logged_in_to_facebook) {
+      await GoogleInitializer();
+    }
     setIsInitialized(true);
   }, []);
 
-  if (isInitialized) {
-    return <div>{children}</div>;
+  if (IsIntialized) {
+    return (
+      <div>
+        {authState.isLogged ? <Redirect to="/" /> : null}
+        {children}
+      </div>
+    );
   } else {
     return (
       <div

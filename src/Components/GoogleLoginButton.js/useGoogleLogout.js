@@ -1,21 +1,15 @@
-import React, { useContext } from "react";
-import { useGoogleLogout as googleLogoutHook } from "react-google-login";
+import React, { useContext, useEffect } from "react";
+import { useGoogleLogout } from "react-google-login";
 import AuthContext from "../../Context/AuthContex";
 
 export default () => {
-  const { Signin_Google, Signout } = useContext(AuthContext);
   const onLogoutSuccess = (res) => {
-    console.log(res);
-    Signout();
+    alert("Logged out");
   };
-
-  const onFailure = (res) => {
-    console.log(res);
-  };
-  const { signOut, loaded } = googleLogoutHook({
+  const { signOut, loaded } = useGoogleLogout({
     onLogoutSuccess,
     clientId:
-      "781800024357-s8jg5vtl14jdptl3v902aaql120gda25.apps.googleusercontent.com",
+      "781800024357-h33p7pph0tkgatmqed9h6dg3d5b74q0p.apps.googleusercontent.com",
     accessType: "offline",
   });
   return [signOut];
