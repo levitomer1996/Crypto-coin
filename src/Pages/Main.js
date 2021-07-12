@@ -5,17 +5,21 @@ import AppInitializer from "../Handlers/AppInitializer";
 import AddAssetPage from "./AddAssetPage/AddAssetPage";
 import SigninPage from "./SigninPage/SigninPage";
 import useGoogleLogout from "../Components/GoogleLoginButton.js/useGoogleLogout";
+import HomePage from "./HomePage/HomePage";
 
 const Main = () => {
   const { authState } = useContext(AuthContext);
-  const [signOutGoogle] = useGoogleLogout();
+  // const [signOutGoogle] = useGoogleLogout();
   useEffect(() => {
-    signOutGoogle();
+    // signOutGoogle();
   }, []);
   return (
     <AppInitializer>
       <div>
         <Switch>
+          <Route path="/">
+            <HomePage />
+          </Route>
           <Route exact path="/login">
             <SigninPage />
           </Route>
