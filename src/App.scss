@@ -1,6 +1,28 @@
+// ========== General CSS ============= //
 body {
   font-family: "Poppins", sans-serif;
   background-color: #1e1e2f;
+  border-top: 2px solid #f835d8;
+}
+
+// ========== Scroll bar CSS ============= //
+::-webkit-scrollbar {
+  width: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b32f9fc0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d725bb;
 }
 
 .paper_root {

@@ -4,6 +4,7 @@ import Main from "./Pages/Main";
 import useStyles from "./App.style";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
+
 import { AuthProvider } from "./Context/AuthContex";
 import { ModalProvider } from "./Context/ModalContext";
 import GeneralModal from "./Components/Modal/Modal";
