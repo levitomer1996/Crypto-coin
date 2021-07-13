@@ -1,3 +1,54 @@
 .homepage {
-  background-color: red;
+  min-height: 100vh;
+  padding: 30px 50px;
+  .wrapper {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-areas:
+      "advertise advertise"
+      "sidebar tables";
+    column-gap: 20px;
+    row-gap: 20px;
+    .advertise {
+      grid-area: advertise;
+      height: 10vh;
+    }
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #f835d8;
+      border-radius: 10px;
+      padding: 10px;
+      max-height: 300px;
+    }
+    .tables {
+      grid-area: tables;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-areas:
+        "total_coin_value total_coin_value total_coin_value"
+        "your_coins your_coins total_assets_amt";
+      max-height: 100%;
+      .total_coin_value {
+        grid-area: total_coin_value;
+        background-color: #27293e;
+        color: #fff;
+        border-radius: 10px;
+      }
+      .your_coins {
+        grid-area: your_coins;
+        background-color: #27293e;
+        color: #fff;
+        border-radius: 10px;
+      }
+      .total_assets_amt {
+        grid-area: total_assets_amt;
+        background-color: #27293e;
+        color: #fff;
+        border-radius: 10px;
+      }
+    }
+  }
 }
