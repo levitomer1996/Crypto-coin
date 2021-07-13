@@ -28,7 +28,7 @@ const AppInitializer = ({ children }) => {
               "GET",
               {},
               function (res) {
-                console.log("Connected to face");
+                console.log(res);
                 setIsLoggedToFacebook(true);
                 resolve(Signin_Facebook(res));
               }
