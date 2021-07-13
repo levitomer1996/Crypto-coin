@@ -1,10 +1,19 @@
 // ========== General CSS ============= //
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;900&display=swap');
+
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   background-color: #1e1e2f;
   border-top: 2px solid #f835d8;
 }
 
+
+
+// ========= Tables General Css =========== //
+
+canvas {
+  max-height: 300px;
+}
 // ========== Scroll bar CSS ============= //
 ::-webkit-scrollbar {
   width: 10px;
@@ -17,13 +26,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b32f9fc0;
+  background: #464657;
   border-radius: 10px;
+  &:hover {
+    background: #686877;
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #d725bb;
-}
 
 .paper_root {
   background-color: #d650d5;

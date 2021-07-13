@@ -29,6 +29,7 @@ const HomePage = () => {
             <TotalAssetsAmtTable />
           </div>
         </section>
+        
       </div>
     </div>
 

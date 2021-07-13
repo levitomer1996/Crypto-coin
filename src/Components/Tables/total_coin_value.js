@@ -28,11 +28,12 @@ const options = {
 };
 
 const CoinValueTable = () => (
-    <div className="table">
+    <div className="total_crypto_value">
         <div className='header'>
-            <h1 className='title'>Total Crypto Value</h1>
+            <div className='title'>Total Crypto Value</div>
+            <p className="ammount">350.642$</p>
         </div>
-        <Bar data={data} options={options} />
+        <Bar className="table" data={data} options={options} />
     </div>
 );
 

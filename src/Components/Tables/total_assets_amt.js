@@ -28,9 +28,10 @@ const options = {
 };
 
 const TotalAssetsAmtTable = () => (
-    <div className="table">
+    <div className="total_assets">
         <div className='header'>
-            <h1 className='title'>Total Assets Amount</h1>
+            <div className='title'>Total Assets Amount</div>
+            <p className="ammount">80</p>
         </div>
         <Bar data={data} options={options} />
     </div>

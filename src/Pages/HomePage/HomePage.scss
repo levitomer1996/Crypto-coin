@@ -13,14 +13,13 @@
     .advertise {
       grid-area: advertise;
       height: 10vh;
-      // background-color: rgba(189, 32, 32, 0.411);
     }
     .sidebar {
       grid-area: sidebar;
       background-color: #f835d8;
       border-radius: 10px;
       padding: 10px;
-      max-height: 400px;
+      max-height: 300px;
     }
     .tables {
       grid-area: tables;
