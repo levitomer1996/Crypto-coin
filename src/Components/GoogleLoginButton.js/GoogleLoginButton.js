@@ -1,8 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, Typography } from "@material-ui/core";
-import useGoogleLogin from "./useGoogleLogin";
+
 import AuthContext from "../../Context/AuthContex";
+import useGoogleLogin from "./useGoogleLogin";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
@@ -14,10 +15,13 @@ const useStyles = makeStyles(() => ({
   },
   googleIcon: { width: 30, height: 30 },
 }));
+const clientId =
+  "781800024357-h33p7pph0tkgatmqed9h6dg3d5b74q0p.apps.googleusercontent.com";
 
 const GoogleLoginButton = () => {
   const { Signin_Google } = useContext(AuthContext);
   const classes = useStyles();
+
   const [signIn] = useGoogleLogin();
   return (
     <Button
@@ -43,6 +47,7 @@ const GoogleLoginButton = () => {
         Login with Google
       </Typography>
     </Button>
+    // <div className="g-signin2" data-onsuccess="onSignIn"></div>
   );
 };
 

@@ -1,25 +1,31 @@
 import React, { useContext } from "react";
-import { useGoogleLogin as googleLoginHook } from "react-google-login";
+import { useGoogleLogin } from "react-google-login";
 import AuthContext from "../../Context/AuthContex";
-
 export default () => {
-  const { Signin_Google, Signout } = useContext(AuthContext);
+  const { Signin_Google } = useContext(AuthContext);
+  const clientId =
+    "781800024357-h33p7pph0tkgatmqed9h6dg3d5b74q0p.apps.googleusercontent.com";
+
   const onSuccess = (res) => {
-    console.log("Connected to google");
-    console.log(res.profileObj);
     Signin_Google(res.profileObj);
   };
   const onFailure = (res) => {
-    console.log("not connected to google");
-    Signout();
+    console.log("Login failed: res:", res);
   };
-  const { signIn } = googleLoginHook({
+
+  const { signIn } = useGoogleLogin({
     onSuccess,
     onFailure,
-    clientId:
-      "781800024357-s8jg5vtl14jdptl3v902aaql120gda25.apps.googleusercontent.com",
+    clientId,
     isSignedIn: true,
     accessType: "offline",
+
+    // responseType: 'code',
+    // prompt: 'consent',
   });
-  return [signIn];
+
+  const signInToGoogle = () => {
+    signIn();
+  };
+  return [signInToGoogle];
 };
