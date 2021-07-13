@@ -82,12 +82,7 @@ const AppInitializer = ({ children }) => {
   }, []);
 
   if (IsIntialized) {
-    return (
-      <div>
-        {authState.isLogged ? <Redirect to="/" /> : null}
-        {children}
-      </div>
-    );
+    return <div>{children}</div>;
   } else {
     return (
       <div

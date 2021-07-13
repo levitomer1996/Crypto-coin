@@ -4,15 +4,13 @@ import AuthContext from "../Context/AuthContex";
 import AppInitializer from "../Handlers/AppInitializer";
 import AddAssetPage from "./AddAssetPage/AddAssetPage";
 import SigninPage from "./SigninPage/SigninPage";
-import useGoogleLogout from "../Components/GoogleLoginButton.js/useGoogleLogout";
+import { Redirect } from "react-router-dom";
 import HomePage from "./HomePage/HomePage";
 
 const Main = () => {
   const { authState } = useContext(AuthContext);
-  // const [signOutGoogle] = useGoogleLogout();
-  useEffect(() => {
-    // signOutGoogle();
-  }, []);
+
+  useEffect(() => {}, []);
   return (
     <AppInitializer>
       <div>
