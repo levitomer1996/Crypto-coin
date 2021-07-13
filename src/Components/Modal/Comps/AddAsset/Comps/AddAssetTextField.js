@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   TextField,
   makeStyles,
+  Button,
   List,
   ListItem,
   ListItemText,
@@ -9,7 +10,7 @@ import {
 } from "@material-ui/core";
 import coinList from "../coinList";
 import findStringInArray from "../../../../../Helpers/findStringInArray";
-
+import "./AddAssetModal.scss";
 const useStyles = makeStyles((theme) => ({
   root: { width: "100%", padding: 10, color: "white" },
   textField: { color: "white", width: "100%" },
@@ -21,24 +22,17 @@ const AddAssetTextField = (props) => {
   const [inputVal, setInputVal] = useState("");
   const [menuItemList, setMenuItemList] = useState(["Tomer", "Yonatan"]);
   const testList = ["Tomer", "Joy", "Yonatan", "Tomas"];
-  useEffect(async () => {
-    let newList = [];
-    console.log(inputVal);
-    setMenuItemList([]);
-    if (inputVal !== "") {
-      for (let i = 0; i < coinList.length; i++) {
-        if (
-          coinList[i]
-            .toLocaleUpperCase()
-            .startsWith(inputVal.toLocaleUpperCase())
-        ) {
-          console.log(coinList[i].toLocaleUpperCase());
-          newList = [...newList, coinList[i]];
-        }
-      }
-      setMenuItemList(newList);
-    }
+  useEffect(() => {
+    setMenuItemList(filterItemsFromArray(coinList, inputVal));
   }, [inputVal]);
+
+  const filterItemsFromArray = (arr, inputValue) => {
+    if (inputVal === "") {
+      return [];
+    } else {
+      return arr.filter((str) => str.startsWith(inputValue));
+    }
+  };
 
   return (
     <div className={classes.root}>
@@ -48,28 +42,20 @@ const AddAssetTextField = (props) => {
         style={{ width: "100%" }}
         InputLabelProps={{ style: { color: "white" } }}
         variant="outlined"
+        onChange={(e) => setInputVal(e.target.value)}
       />
-      <div>
-        <List
-          style={{
-            maxHeight: "100px",
-            zIndex: 100,
-            backgroundColor: "#d650d5",
-            overflow: "auto",
-          }}
-        >
-          {testList.map((i) => {
-            return (
-              <ListItem button>
-                <ListItemText
-                  primary={i}
-                  style={{ color: "black", fontWeight: "bold" }}
-                />
-              </ListItem>
-            );
-          })}
-        </List>
-      </div>
+
+      <ul>
+        {menuItemList.map((i) => {
+          return (
+            <li>
+              <button className="ul_button">
+                <p className="button_text">{i}</p>
+              </button>{" "}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
