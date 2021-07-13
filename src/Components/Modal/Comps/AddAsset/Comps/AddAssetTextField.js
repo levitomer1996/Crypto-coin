@@ -19,7 +19,7 @@ const AddAssetTextField = (props) => {
   const classes = useStyles();
   const { textfieldStyle } = props;
   const [inputVal, setInputVal] = useState("");
-  const [menuItemList, setMenuItemList] = useState([]);
+  const [menuItemList, setMenuItemList] = useState(["Tomer", "Yonatan"]);
   const testList = ["Tomer", "Joy", "Yonatan", "Tomas"];
   useEffect(async () => {
     let newList = [];
@@ -48,17 +48,26 @@ const AddAssetTextField = (props) => {
         style={{ width: "100%" }}
         InputLabelProps={{ style: { color: "white" } }}
         variant="outlined"
-        onChange={(e) => setInputVal(e.target.value)}
       />
       <div>
-        <List>
-          {menuItemList.map((item) => {
+        <List
+          style={{
+            maxHeight: "100px",
+            zIndex: 100,
+            backgroundColor: "#d650d5",
+            overflow: "auto",
+          }}
+        >
+          {testList.map((i) => {
             return (
               <ListItem button>
-                <ListItemText primary={item} />
+                <ListItemText
+                  primary={i}
+                  style={{ color: "black", fontWeight: "bold" }}
+                />
               </ListItem>
             );
-          })}{" "}
+          })}
         </List>
       </div>
     </div>
