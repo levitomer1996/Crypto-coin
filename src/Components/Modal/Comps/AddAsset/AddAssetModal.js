@@ -12,16 +12,13 @@ const AddAssetModal = () => {
   // const [coinsList, getCoinsList] = useGetCoinsList();
   const { addAssetState, addInputToModal, removeInputFromModal } =
     useContext(AddAssetContext);
-  // useEffect(() => {
-  //   getCoinsList();
-  // }, []);
 
   return (
     <div className={classes.add_asset_root}>
-      {addAssetState.inputs.map(({ value, id }) => {
+      {addAssetState.inputs.map(({ id }) => {
         return (
           <div className={classes.add_asset_input_div} key={id}>
-            <AddAssetTextField />
+            <AddAssetTextField key={id} id={id} />
             <IconButton onClick={() => removeInputFromModal(id)}>
               <CloseIcon className={classes.add_asset_input_div_close_button} />
             </IconButton>

@@ -3,9 +3,16 @@ import Modal from "@material-ui/core/Modal";
 import ShareIcon from "@material-ui/icons/Share";
 import IconButton from "@material-ui/core/IconButton";
 import ModalContext from "../../Context/ModalContext";
-import useStyles, { getModalStyle } from "./Comps/Modal.style";
+import useStyles, { getModalStyle, getWidth } from "./Comps/Modal.style";
 import CloseIcon from "@material-ui/icons/Close";
 import ContentHandler from "./Comps/ContentHandler";
+import {
+  Button,
+  Modal as bootstrapModal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
 
 export default function GeneralModal() {
   const { modalState, setIsModalOpen } = useContext(ModalContext);
@@ -15,22 +22,31 @@ export default function GeneralModal() {
   const [modalStyle] = React.useState(getModalStyle);
 
   return (
-    <div>
-      <Modal
-        open={isOpen}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        onClose={setIsModalOpen}
-      >
-        <div style={modalStyle} className={classes.paper}>
-          <div className={classes.close_btn_container}>
-            <IconButton onClick={setIsModalOpen}>
-              <CloseIcon style={{ color: "#83405e" }} />
-            </IconButton>
-          </div>
-          <ContentHandler content={content} params={params} />
-        </div>
-      </Modal>
-    </div>
+    //
+    // <bootstrapModal
+    //   isOpen={true}
+    //   modalClassName="modal-black"
+    //   style={{ width: "20%" }}
+    // >
+    //   <div className="modal-header">
+    //     <button
+    //       type="button"
+    //       className="close"
+    //       data-dismiss="modal"
+    //       aria-label="Close"
+    //     >
+    //       <i className="tim-icons icon-simple-remove"></i>
+    //     </button>
+    //     <h5 className="modal-title">Modal title</h5>
+    //   </div>
+    //   <ModalBody>
+    //     <p>Woohoo, you're reading this text in a modal!</p>
+    //   </ModalBody>
+    //   <ModalFooter>
+    //     <Button color="secondary">Close</Button>
+    //     <Button color="primary">Save changes</Button>
+    //   </ModalFooter>
+    // </bootstrapModal>
+    <div></div>
   );
 }

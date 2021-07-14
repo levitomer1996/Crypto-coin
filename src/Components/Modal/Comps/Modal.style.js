@@ -15,6 +15,17 @@ export function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
+//Get Modal's width depends on which content (Moda'ls type) was rendered.
+export function getWidth(c) {
+  switch (c) {
+    case "addasset":
+      return "60%";
+      break;
+    default:
+      break;
+  }
+}
+
 const useStyles = makeStyles((theme) => ({
   close_btn_container: {
     display: "flex",
@@ -38,7 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     position: "absolute",
-    width: 400,
+    width: (props) => {
+      console.log(props);
+    },
     backgroundColor: "#1d1d27",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
