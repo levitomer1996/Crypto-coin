@@ -15,7 +15,7 @@ export default function GeneralModal() {
     <Modal isOpen={isOpen} modalClassName="modal-black">
       <div className="general_modal">
         <div className={"close-button-div"}>
-          <IconButton>
+          <IconButton onClick={() => setIsModalOpen()}>
             <Icon
               icon={roundClose}
               style={{ width: 20, height: 20, color: "#823c59" }}

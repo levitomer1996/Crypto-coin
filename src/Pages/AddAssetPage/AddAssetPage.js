@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { IconButton, Typography, Button } from "@material-ui/core";
+import { IconButton, Typography } from "@material-ui/core";
+import { Button } from "reactstrap";
 import AppPaper from "../../Components/AppPaper/AppPaper";
 
 import ModalContext from "../../Context/ModalContext";
@@ -22,10 +23,8 @@ const AddAssetPage = () => {
         </div>
         <div className="button_div">
           <Button
-            variant="outlined"
-            color="primary"
-            className={"addassetpagebutton"}
-            style={{ color: "white" }}
+            color="default"
+            className="animation-on-hover"
             onClick={() => setIsModalOpen("addasset")}
           >
             Add Assets

@@ -7,6 +7,7 @@ export default () => {
     "781800024357-h33p7pph0tkgatmqed9h6dg3d5b74q0p.apps.googleusercontent.com";
 
   const onSuccess = (res) => {
+    console.log(res.profileObj);
     Signin_Google(res.profileObj);
   };
   const onFailure = (res) => {

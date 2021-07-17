@@ -10,6 +10,14 @@ const ModalReducer = (state, action) => {
         content: action.payload.content,
         params: action.payload.params,
       };
+    case "close_modal":
+      return {
+        ...state,
+        isOpen: null,
+        content: null,
+        params: null,
+      };
+
     case "set_modal_content":
       return {
         ...state,
@@ -44,12 +52,16 @@ export const ModalProvider = ({ children }) => {
     dispatch({ type: "set_modal_content", payload: { content, params } });
   };
 
+  const closeModal = () => {
+    dispatch({ type: "close_modal" });
+  };
   return (
     <ModalContext.Provider
       value={{
         modalState,
         setIsModalOpen,
         setModalContent,
+        closeModal,
       }}
     >
       {children}

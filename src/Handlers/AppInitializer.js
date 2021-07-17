@@ -2,14 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../Context/AuthContex";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Redirect } from "react-router-dom";
+import cryptoCastle from "../API/cryptoCastle";
 import useGoogleLogin from "../Components/GoogleLoginButton.js/useGoogleLogin";
 const AppInitializer = ({ children }) => {
   const { Signin_Facebook, Signin_Google, Signout, authState } =
     useContext(AuthContext);
   const [IsIntialized, setIsInitialized] = useState(false);
+
+  const loginToServer = async (user_id, email) => {
+    try {
+      console.log(user_id, email);
+      const res = await cryptoCastle.post("/signin/", { user_id, email });
+      console.log(res);
+    } catch (error) {}
+  };
   //Facebook
   const [is_logged_in_to_facebook, setIsLoggedToFacebook] = useState(false);
-
   const FacebookInitialize = () => {
     return new Promise((resolve) => {
       //trying to initialize facebook , checks if a user is already signed in.
@@ -24,11 +32,12 @@ const AppInitializer = ({ children }) => {
         window.FB.getLoginStatus(function (response) {
           if (response.status === "connected") {
             window.FB.api(
-              "/me/?fields=id,name,picture&?redirect=false",
+              "/me/?fields=id,name,picture,email&?redirect=false",
               "GET",
               {},
-              function (res) {
+              async function (res) {
                 console.log(res);
+                await loginToServer(res.id, res.email);
                 setIsLoggedToFacebook(true);
                 resolve(Signin_Facebook(res));
               }
@@ -66,9 +75,10 @@ const AppInitializer = ({ children }) => {
   const [signInToGoogle] = useGoogleLogin();
   const [is_logged_in_To_google, setIsLoggedInToGoogle] = useState(false);
   const GoogleInitializer = () => {
-    return new Promise((res) => {
+    return new Promise(async (res) => {
       signInToGoogle();
       setIsLoggedInToGoogle(true);
+
       res();
     });
   };
@@ -78,6 +88,7 @@ const AppInitializer = ({ children }) => {
     if (!is_logged_in_to_facebook) {
       await GoogleInitializer();
     }
+
     setIsInitialized(true);
   }, []);
 

@@ -12,17 +12,12 @@ const HomePage = () => {
   const { authState } = useContext(AuthContext);
   return (
     <div className="homepage">
-      {/* <div className="avatar_div">
+      {authState.user.picture ? (
         <Avatar
-          alt={authState.user.name}
-          src={authState.user.picture.data.url}
+          userName={authState.user.name}
+          picture={authState.user.picture.data.url}
         />
-        <p style={{ color: "white" }}>{authState.user.name}</p>
-      </div> */}
-      <Avatar
-        userName={authState.user.name}
-        picture={authState.user.picture.data.url}
-      />
+      ) : null}
       <div className="wrapper">
         <section className="advertise"></section>
         <section className="sidebar">Sidebar</section>
