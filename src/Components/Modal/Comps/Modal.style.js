@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   add_asset_input_div_close_button: {
-    color: "white",
+    color: "#823c59",
   },
 }));
 

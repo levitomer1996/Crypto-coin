@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import AppInputSelect from "../../../AppInputSelect/AppInputSelect";
-import useGetCoinsList from "../../../../Hooks/useGetCoinsList";
-import { Button, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import { Button } from "reactstrap";
 import useStyles from "../Modal.style";
 import AddAssetContext from "./AddAsset.Context";
 import CloseIcon from "@material-ui/icons/Close";
-import coinList from "./coinList";
 import AddAssetTextField from "./Comps/AddAssetTextField";
 const AddAssetModal = () => {
   const classes = useStyles();
@@ -17,12 +15,16 @@ const AddAssetModal = () => {
     <div className={classes.add_asset_root}>
       {addAssetState.inputs.map(({ id }) => {
         return (
-          <div className={classes.add_asset_input_div} key={id}>
-            <AddAssetTextField key={id} id={id} />
-            <IconButton onClick={() => removeInputFromModal(id)}>
-              <CloseIcon className={classes.add_asset_input_div_close_button} />
-            </IconButton>
-          </div>
+          <>
+            <div className={classes.add_asset_input_div} key={id}>
+              <AddAssetTextField key={id} id={id} />
+              <IconButton onClick={() => removeInputFromModal(id)}>
+                <CloseIcon
+                  className={classes.add_asset_input_div_close_button}
+                />
+              </IconButton>
+            </div>
+          </>
         );
       })}
 
