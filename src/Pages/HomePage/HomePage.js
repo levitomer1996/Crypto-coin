@@ -25,12 +25,12 @@ const HomePage = () => {
           <div className="total_coin_value">
             <CoinValueTable />
           </div>
-          <div className="your_coins">
+          {/* <div className="your_coins">
             <YourCoinsTable />
           </div>
           <div className="total_assets_amt">
             <TotalAssetsAmtTable />
-          </div>
+          </div> */}
         </section>
       </div>
     </div>

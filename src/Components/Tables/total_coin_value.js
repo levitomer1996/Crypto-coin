@@ -2,16 +2,48 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import './total_coin_value.scss';
 
+import dollar_icon from '../../assets/img/dollar2.png';
+
 const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    labels: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
     datasets: [
         {
-            label: 'USD',
-            data: [12, 19, 3, 5, 2, 3],
-            fill: true,
-            backgroundColor: '#254550',
-            borderColor: '#417A7D',
-        },
+            label: "USD",
+            data: [
+            1000,
+            300,
+            6000,
+            500,
+            520,
+            8500,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            ],
+            backgroundColor: [
+              "rgba(11,184,157,0.2)"
+            ],
+            borderColor: [
+              "rgba(11,184,157,1)"
+            ],
+            borderWidth: 1,
+          },
     ],
 };
 
@@ -31,7 +63,10 @@ const CoinValueTable = () => (
     <div className="total_crypto_value">
         <div className='header'>
             <div className='title'>Total Crypto Value</div>
-            <p className="ammount">350.642$</p>
+            <div className="ammount">
+                <img src={dollar_icon}/>
+                <p className="value">350.642$</p>
+            </div>
         </div>
         <Bar className="table" data={data} options={options} />
     </div>
