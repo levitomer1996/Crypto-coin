@@ -1,14 +1,16 @@
 import React from 'react';
 import './your_coins.scss';
 
-import bitcoin from '../../assets/images/bitcoin.png';
-import piggy from '../../assets/images/piggy.png';
+import bitcoin from '../../../assets/images/bitcoin.png';
+import piggy from '../../../assets/images/piggy.png';
 
 const YourCoinsTable = () => (
     <div className="your_coins_table">
         <div className='header'>
             <div className='title'>Your Crypto Coins</div>
+            <button type="button" class="add_coin">Add Coin</button>
         </div>
+        
         <table className="table">
             <tr>
                 <th></th>

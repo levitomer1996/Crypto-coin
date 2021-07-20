@@ -1,0 +1,37 @@
+.total_crypto_value {
+  padding: 20px;
+  font-family: "Exo2";
+  .header {
+    .title{
+      font-size: 28px;
+      padding: 2px 0px;
+      letter-spacing: 1px;
+    }
+    .ammount {
+      display: flex;
+      flex-direction: row;
+      .value {
+        font-size: 18px;
+        margin-left: 10px;
+      }
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .centered_value {
+      text-align: center;
+      color: #05aa6b;
+      margin: 0px auto;
+      width: 50%;
+      height: 50px;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+#myChart {
+  height: 250px;
+  width: 100%;
+}

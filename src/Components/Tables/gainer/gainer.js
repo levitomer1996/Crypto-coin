@@ -2,6 +2,8 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import './total_assets_amt.scss';
 
+import amount_icon from '../../assets/img/amount.png';
+
 const data = {
     labels: ['Coins'],
     datasets: [
@@ -31,7 +33,10 @@ const TotalAssetsAmtTable = () => (
     <div className="total_assets">
         <div className='header'>
             <div className='title'>Total Assets Amount</div>
-            <p className="ammount">80</p>
+            <div className="ammount">
+                <img src={amount_icon}/>
+                <p className="value">80</p>
+            </div>
         </div>
         <Bar data={data} options={options} />
     </div>
