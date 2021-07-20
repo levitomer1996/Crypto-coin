@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import './total_coin_value.scss';
 
-import dollar_icon from '../../assets/img/dollar2.png';
+import dollar_icon from '../../../assets/img/dollar2.png';
 
 const data = {
     labels: [
@@ -60,13 +60,14 @@ const options = {
 };
 
 const CoinValueTable = () => (
-    <div className="total_crypto_value">
+    <div className="total_crypto_value ">
         <div className='header'>
             <div className='title'>Total Crypto Value</div>
             <div className="ammount">
                 <img src={dollar_icon}/>
                 <p className="value">350.642$</p>
             </div>
+            <h2 className="centered_value">350.642$</h2>
         </div>
         <Bar className="table" data={data} options={options} />
     </div>
