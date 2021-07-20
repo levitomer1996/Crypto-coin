@@ -57,7 +57,11 @@ li {
 .text_field_div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .coin_select {
   width: 100%;
+}
+.react-select_menu {
+  background: red;
 }
