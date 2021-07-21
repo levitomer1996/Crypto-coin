@@ -8,6 +8,7 @@ export default () => {
 
   const onSuccess = (res) => {
     console.log(res.profileObj);
+    localStorage.setItem("google_t", res.tokenId);
     Signin_Google(res.profileObj);
   };
   const onFailure = (res) => {
