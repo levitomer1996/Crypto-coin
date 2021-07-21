@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import ModalContext from "../../Context/ModalContext";
 import ContentHandler from "./Comps/ContentHandler";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal } from "reactstrap";
 import { IconButton } from "@material-ui/core";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import roundClose from "@iconify-icons/ic/round-close";
 
 import "./Comps/Modal.scss";

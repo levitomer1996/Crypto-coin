@@ -4,6 +4,7 @@ import AddAssetModal from "./AddAsset/AddAssetModal";
 export default function ContentHandler({ content, params }) {
   switch (content) {
     case "addasset":
+      console.log("Addasset");
       return (
         <AddAssetProvider>
           <AddAssetModal />

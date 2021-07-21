@@ -41,7 +41,7 @@ const AppInitializer = ({ children }) => {
               {},
               async function (res) {
                 console.log(res);
-                await loginToServer(res.id, res.email, res.name);
+                await loginToServer(res.email, res.name);
                 setIsLoggedToFacebook(true);
                 resolve(Signin_Facebook(res));
               }
