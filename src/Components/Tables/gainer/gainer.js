@@ -1,11 +1,24 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import './total_assets_amt.scss';
+import { Line } from 'react-chartjs-2';
+import './gainer.scss';
 
-import amount_icon from '../../assets/img/amount.png';
+import top_icon from '../../../assets/img/top-rated.png';
 
 const data = {
-    labels: ['Coins'],
+    labels: [
+        "ינואר",
+        "פברואר",
+        "מרץ",
+        "אפריל",
+        "מאי",
+        "יוני",
+        "יולי",
+        "אוגוסט",
+        "ספטמבר",
+        "אוקטובר",
+        "נובמבר",
+        "דצמבר",
+      ],
     datasets: [
         {
             label: 'Amount',
@@ -29,17 +42,17 @@ const options = {
     },
 };
 
-const TotalAssetsAmtTable = () => (
-    <div className="total_assets">
+const GainerCoin = () => (
+    <div className="gainer_table">
         <div className='header'>
-            <div className='title'>Total Assets Amount</div>
+            <div className='title'>המטבע שהכי עלה</div>
             <div className="ammount">
-                <img src={amount_icon}/>
+                <img src={top_icon}/>
                 <p className="value">80</p>
             </div>
         </div>
-        <Bar data={data} options={options} />
+        <Line data={data} options={options} />
     </div>
 );
 
-export default TotalAssetsAmtTable;
+export default GainerCoin;

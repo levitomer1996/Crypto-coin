@@ -7,18 +7,18 @@ import piggy from '../../../assets/images/piggy.png';
 const YourCoinsTable = () => (
     <div className="your_coins_table">
         <div className='header'>
-            <div className='title'>Your Crypto Coins</div>
-            <button type="button" class="add_coin">Add Coin</button>
+            <div className='title'>המטבעות שלי</div>
+            <button type="button" class="add_coin">מטבע חדש</button>
         </div>
         
         <table className="table">
             <tr>
                 <th></th>
-                <th>NAME</th>
-                <th>VALUE</th>
-                <th>24H CHANGE</th>
-                <th>AMOUNT</th>
-                <th>PROFIT/LOSE</th>
+                <th>שם</th>
+                <th>שווי</th>
+                <th>שינוי יומי</th>
+                <th>כמות</th>
+                <th>רווח/הפסד</th>
             </tr>
             <tr>
                 <td><img src={bitcoin} width="20" height="20"/></td>

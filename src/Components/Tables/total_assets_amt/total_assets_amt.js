@@ -7,11 +7,10 @@ import amount_icon from '../../../assets/img/amount.png';
 const data = {
     datasets: [
         {
-            label: 'Amount',
-            data: [50, 87, 5000],
-            fill: false,
-            backgroundColor: ['rgba(250,3,125,0.5)','rgba(8,76,150,0.5)','rgba(200,50,87,0.5)'],
-            borderColor: 'rgb(38,76,125)',
+            data: [50, 87, 320],
+            fill: true,
+            backgroundColor: ['#ffea00','#ec407a','#039be5'],
+            borderColor: 'rgba(38,76,125,0.2)',
         },
     ],
     labels:[
@@ -23,20 +22,22 @@ const data = {
 
 const options = {
     scales: {
-        yAxes: [
-            {
-                ticks: {
-                    beginAtZero: true,
-                },
+        y: {
+            legend:{
+                rtl:true,
+                reverse:true
             },
-        ],
+            position:'right',
+            beginAtZero: true,
+           
+        },
     },
 };
 
 const TotalAssetsAmtTable = () => (
     <div className="total_assets">
         <div className='header'>
-            <div className='title'>Total Assets Amount</div>
+            <div className='title'>פילוח מטבעות</div>
             <div className="ammount">
                 <img src={amount_icon}/>
                 <p className="value">80</p>

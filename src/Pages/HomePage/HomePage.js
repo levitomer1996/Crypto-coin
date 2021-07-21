@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import CoinValueTable from "../../Components/Tables/total_coin_value/total_coin_value";
 import YourCoinsTable from "../../Components/Tables/your_coins/your_coins";
 import TotalAssetsAmtTable from "../../Components/Tables/total_assets_amt/total_assets_amt";
+import GainerCoin from "../../Components/Tables/gainer/gainer";
+import LoserCoin from "../../Components/Tables/loser/loser";
 
 import Avatar from "./Comps/Avatar";
 import AuthContext from "../../Context/AuthContex";
@@ -11,17 +13,14 @@ import "./HomePage.scss";
 
 const HomePage = () => {
 
-  // const { authState } = useContext(AuthContext);
-  
   return (
-    <div className="homepage">
 
+    <div className="homepage">
       <div className="wrapper">
         <section className="advertise"></section>
-
         <section className="sidebar">Sidebar</section>
-
         <section className="tables">
+
           <div className="total_coin_value">
             <CoinValueTable />
           </div>
@@ -31,8 +30,14 @@ const HomePage = () => {
           <div className="total_assets_amt">
             <TotalAssetsAmtTable />
           </div>
-        </section>
+          <div className="gainer">
+            <GainerCoin />
+          </div>
+          <div className="loser">
+            <LoserCoin />
+          </div>
 
+        </section>
       </div>
     </div>
   );
@@ -40,7 +45,7 @@ const HomePage = () => {
 
 export default HomePage;
 
-
+  // const { authState } = useContext(AuthContext);
 
 {/* {authState.user.picture ? (
         <Avatar

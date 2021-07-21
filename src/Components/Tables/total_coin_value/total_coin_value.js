@@ -6,18 +6,18 @@ import dollar_icon from '../../../assets/img/dollar2.png';
 
 const data = {
     labels: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "ינואר",
+        "פברואר",
+        "מרץ",
+        "אפריל",
+        "מאי",
+        "יוני",
+        "יולי",
+        "אוגוסט",
+        "ספטמבר",
+        "אוקטובר",
+        "נובמבר",
+        "דצמבר",
       ],
     datasets: [
         {
@@ -49,27 +49,28 @@ const data = {
 
 const options = {
     scales: {
-        yAxes: [
-            {
-                ticks: {
-                    beginAtZero: true,
-                },
-            },
-        ],
-    },
+        y: {
+            position:'right',
+            beginAtZero: true,
+        },
+        x: {
+            rtl:true,
+            reverse:true
+        },
+      },
 };
 
 const CoinValueTable = () => (
     <div className="total_crypto_value ">
         <div className='header'>
-            <div className='title'>Total Crypto Value</div>
+            <div className='title'>שווי הארנק שלי</div>
             <div className="ammount">
                 <img src={dollar_icon}/>
                 <p className="value">350.642$</p>
             </div>
             <h2 className="centered_value">350.642$</h2>
         </div>
-        <Bar className="table" data={data} options={options} />
+        <Bar className="table" data={data} options={options} style={{direction:'rtl'}}/>
     </div>
 );
 
