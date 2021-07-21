@@ -29,25 +29,30 @@
       column-gap: 20px;
       grid-template-areas:
         "total_coin_value total_coin_value total_coin_value"
-        "your_coins your_coins total_assets_amt";
+        "your_coins your_coins total_assets_amt"
+        "gainer loser .";
       max-height: 100%;
-      .total_coin_value {
-        grid-area: total_coin_value;
+      .total_coin_value, .total_assets_amt, .your_coins,.gainer, .loser{
         background-color: #27293e;
         color: #fff;
         border-radius: 10px;
+        direction: rtl;
+        text-align: right;
+      }
+      .total_coin_value {
+        grid-area: total_coin_value;
       }
       .your_coins {
         grid-area: your_coins;
-        background-color: #27293e;
-        color: #fff;
-        border-radius: 10px;
       }
       .total_assets_amt {
         grid-area: total_assets_amt;
-        background-color: #27293e;
-        color: #fff;
-        border-radius: 10px;
+      }
+      .gainer{
+        grid-area: gainer;
+      }
+      .loser{
+        grid-area:loser;
       }
     }
   }

@@ -1,5 +1,6 @@
 .your_coins_table {
   padding: 20px;
+  font-family: "Varela Round";
   .header{
     position: relative;
     .title{
@@ -10,7 +11,7 @@
    .add_coin{
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
     color: #fff;
     border: none;
