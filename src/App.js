@@ -11,7 +11,11 @@ import GeneralModal from "./Components/Modal/Modal";
 import useGoogleLogout from "./Components/GoogleLoginButton.js/useGoogleLogout";
 import { useEffect } from "react";
 
+<<<<<<< HEAD
 // BlackDashBoard css
+=======
+//BlackDashBoard css
+>>>>>>> d99321ddba675d2d6affedd54d5c40f8d88ccb40
 import "./assets/scss/black-dashboard-react.scss";
 import "./assets/css/nucleo-icons.css";
 

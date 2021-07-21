@@ -12,10 +12,9 @@ const ModalReducer = (state, action) => {
       };
     case "close_modal":
       return {
-        ...state,
-        isOpen: null,
+        isOpen: false,
         content: null,
-        params: null,
+        params: {},
       };
 
     case "set_modal_content":

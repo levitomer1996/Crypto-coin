@@ -9,10 +9,14 @@ const AppInitializer = ({ children }) => {
     useContext(AuthContext);
   const [IsIntialized, setIsInitialized] = useState(false);
 
-  const loginToServer = async (user_id, email) => {
+  const loginToServer = async (user_id, email, userName) => {
     try {
       console.log(user_id, email);
-      const res = await cryptoCastle.post("/signin/", { user_id, email });
+      const res = await cryptoCastle.post("/signin/", {
+        user_id,
+        email,
+        userName,
+      });
       console.log(res);
     } catch (error) {}
   };
@@ -37,7 +41,7 @@ const AppInitializer = ({ children }) => {
               {},
               async function (res) {
                 console.log(res);
-                await loginToServer(res.id, res.email);
+                await loginToServer(res.email, res.name);
                 setIsLoggedToFacebook(true);
                 resolve(Signin_Facebook(res));
               }
@@ -78,7 +82,6 @@ const AppInitializer = ({ children }) => {
     return new Promise(async (res) => {
       signInToGoogle();
       setIsLoggedInToGoogle(true);
-
       res();
     });
   };
@@ -88,7 +91,6 @@ const AppInitializer = ({ children }) => {
     if (!is_logged_in_to_facebook) {
       await GoogleInitializer();
     }
-
     setIsInitialized(true);
   }, []);
 

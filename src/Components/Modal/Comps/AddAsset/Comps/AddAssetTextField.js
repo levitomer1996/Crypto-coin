@@ -6,13 +6,15 @@ import "./AddAssetModal.scss";
 import Select from "react-select";
 import {
   InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Form,
+  Card,
+  CardBody,
+  CardHeader,
+  FormGroup,
+  CardTitle,
   Input,
 } from "reactstrap";
 import classnames from "classnames";
-
+import { Row, Col } from "react-bootstrap";
 const useStyles = makeStyles((theme) => ({
   root: { width: "100%", padding: 10, color: "white" },
   textField: { color: "white", width: "100%" },
@@ -75,22 +77,32 @@ const AddAssetTextField = ({ id }) => {
     //   )}
     // </div>
     <div className="text_field_div">
-      <Select
-        className="react-select primary text_field"
-        classNamePrefix="react-select"
-        name="singleSelect"
-        styles={{ width: "100%" }}
-        value={singleSelect}
-        onChange={(value) => setSingleSelect(value)}
-        onInputChange={(val) => setInputVal(val)}
-        options={menuItemList}
-        placeholder="Single Select"
-      />
-      <div>
-        <InputGroup className={classnames("no-border form-control-lg", {})}>
-          <Input placeholder="Ammout" type="text" />
-        </InputGroup>
-      </div>
+      <Row>
+        <Col md={12}>
+          <Select
+            className="react-select primary text_field"
+            classNamePrefix="react-select"
+            name="singleSelect"
+            value={singleSelect}
+            onChange={(value) => setSingleSelect(value)}
+            onInputChange={(val) => setInputVal(val)}
+            options={menuItemList}
+            placeholder="Single Select"
+          />
+        </Col>
+      </Row>
+      <Row className="date_ammout_div">
+        <Col md={6}>
+          <InputGroup className={classnames("no-border form-control-lg", {})}>
+            <Input placeholder="Ammout" type="number" />
+          </InputGroup>
+        </Col>
+        <Col md={6}>
+          <InputGroup className={classnames("no-border form-control-lg", {})}>
+            <Input type="date" placeholder="Time purchased" />
+          </InputGroup>
+        </Col>
+      </Row>
     </div>
   );
 };
