@@ -13,27 +13,35 @@ const data = {
         "מאי",
         "יוני",
         "יולי",
-        "אוגוסט",
-        "ספטמבר",
-        "אוקטובר",
-        "נובמבר",
-        "דצמבר",
+        // "אוגוסט",
+        // "ספטמבר",
+        // "אוקטובר",
+        // "נובמבר",
+        // "דצמבר",
       ],
     datasets: [
         {
             label: 'Amount',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [874, 765, 733.2, 520, 601, 349, 207.32],
             fill: false,
-            backgroundColor: 'rgba(38,76,125,0.5)',
-            borderColor: 'rgb(38,76,125)',
+            backgroundColor: [
+                "rgba(255, 59, 59, 0.2)"
+              ],
+              pointBackgroundColor: "rgba(255, 59, 59, 0.2)",
+              borderColor: [
+                "rgba(255, 59, 59, 1)"
+              ],
+              borderWidth: 1,
+              tension: 0.4
         },
     ],
 };
 
 const options = {
     scales: {
-        yAxes: [
+        y: [
             {
+                position:'right',
                 ticks: {
                     beginAtZero: true,
                 },
@@ -48,7 +56,7 @@ const LoserCoin = () => (
             <div className='title'>המטבע שהכי ירד</div>
             <div className="ammount">
                 <img src={lowest_icon}/>
-                <p className="value">80</p>
+                <p className="value">-170.3%</p>
             </div>
         </div>
         <Line data={data} options={options} />

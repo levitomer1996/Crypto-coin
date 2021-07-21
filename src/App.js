@@ -11,9 +11,9 @@ import GeneralModal from "./Components/Modal/Modal";
 import useGoogleLogout from "./Components/GoogleLoginButton.js/useGoogleLogout";
 import { useEffect } from "react";
 
-//BlackDashBoard css
-// import "./assets/scss/black-dashboard-react.scss";
-// import "./assets/css/nucleo-icons.css";
+// BlackDashBoard css
+import "./assets/scss/black-dashboard-react.scss";
+import "./assets/css/nucleo-icons.css";
 
 const App = () => {
   const classes = useStyles();

@@ -5,6 +5,7 @@ import YourCoinsTable from "../../Components/Tables/your_coins/your_coins";
 import TotalAssetsAmtTable from "../../Components/Tables/total_assets_amt/total_assets_amt";
 import GainerCoin from "../../Components/Tables/gainer/gainer";
 import LoserCoin from "../../Components/Tables/loser/loser";
+import CoinInfo from "../../Components/Tables/coin_info/coin_info";
 
 import Avatar from "./Comps/Avatar";
 import AuthContext from "../../Context/AuthContex";
@@ -35,6 +36,9 @@ const HomePage = () => {
           </div>
           <div className="loser">
             <LoserCoin />
+          </div>
+          <div className="coin_info">
+            <CoinInfo />
           </div>
 
         </section>

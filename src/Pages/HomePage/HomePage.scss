@@ -24,15 +24,15 @@
     .tables {
       grid-area: tables;
       display: grid;
-      grid-template-columns: 2.5fr 0.5fr;
+      grid-template-columns: repeat(3,1fr);
       row-gap: 20px;
       column-gap: 20px;
       grid-template-areas:
         "total_coin_value total_coin_value total_coin_value"
         "your_coins your_coins total_assets_amt"
-        "gainer loser .";
+        "gainer loser coin_info";
       max-height: 100%;
-      .total_coin_value, .total_assets_amt, .your_coins,.gainer, .loser{
+      .total_coin_value, .total_assets_amt, .your_coins,.gainer, .loser, .coin_info{
         background-color: #27293e;
         color: #fff;
         border-radius: 10px;
@@ -53,6 +53,9 @@
       }
       .loser{
         grid-area:loser;
+      }
+      .coin_info{
+        grid-area:coin_info;
       }
     }
   }

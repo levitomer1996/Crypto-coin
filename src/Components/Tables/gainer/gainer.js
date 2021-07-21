@@ -13,16 +13,16 @@ const data = {
         "מאי",
         "יוני",
         "יולי",
-        "אוגוסט",
-        "ספטמבר",
-        "אוקטובר",
-        "נובמבר",
-        "דצמבר",
+        // "אוגוסט",
+        // "ספטמבר",
+        // "אוקטובר",
+        // "נובמבר",
+        // "דצמבר",
       ],
     datasets: [
         {
             label: 'Amount',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 27, 34, 66, 54, 89,92],
             fill: false,
             backgroundColor: 'rgba(38,76,125,0.5)',
             borderColor: 'rgb(38,76,125)',
@@ -32,7 +32,7 @@ const data = {
 
 const options = {
     scales: {
-        yAxes: [
+        y: [
             {
                 ticks: {
                     beginAtZero: true,
@@ -48,7 +48,7 @@ const GainerCoin = () => (
             <div className='title'>המטבע שהכי עלה</div>
             <div className="ammount">
                 <img src={top_icon}/>
-                <p className="value">80</p>
+                <p className="value">+75.2%</p>
             </div>
         </div>
         <Line data={data} options={options} />

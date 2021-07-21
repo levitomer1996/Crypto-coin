@@ -1,0 +1,35 @@
+.coin_information{
+    padding: 20px;
+    font-family: "Varela Round";
+    .header {
+      .title{
+        font-size: 28px;
+        padding: 2px 0px;
+        letter-spacing: 1px;
+      }
+      .search_input {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+        input[type="search"]{
+            background: transparent;
+            border: 3px solid #5d5e72;
+            border-radius: 5px;
+            margin: 0px auto;
+            padding: 3px 10px;
+            width: 100%;
+            color: #fff;
+            transition: all 0.3s ease;
+            &:focus{
+                outline: none;
+                border: 3px solid #8c8da8;
+                box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.105);
+            }
+        }
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }

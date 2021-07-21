@@ -12,7 +12,8 @@
       flex-direction: row;
       .value {
         font-size: 18px;
-        margin-left: 10px;
+        margin-right: 10px;
+        direction: ltr;
       }
       img {
         width: 25px;
