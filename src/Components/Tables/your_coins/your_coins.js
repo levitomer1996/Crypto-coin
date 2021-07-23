@@ -8,7 +8,7 @@ const YourCoinsTable = () => (
     <div className="your_coins_table">
         <div className='header'>
             <div className='title'>המטבעות שלי</div>
-            <button type="button" class="add_coin">מטבע חדש</button>
+            <button type="button" className="add_coin">מטבע חדש</button>
         </div>
         
         <table className="table">
@@ -26,7 +26,7 @@ const YourCoinsTable = () => (
                 <td>30,000$</td>
                 <td>+2.4%</td>
                 <td>3</td>
-                <td>^3%</td>
+                <td id="lp" style={{color:"#05aa6b"}}>+3%</td>
             </tr>
             <tr>
                 <td><img src={piggy} width="20" height="20"/></td>
@@ -34,7 +34,7 @@ const YourCoinsTable = () => (
                 <td>0.000000087</td>
                 <td>-100%</td>
                 <td>1</td>
-                <td>-52%</td>
+                <td id="lp" style={{color:"rgb(255, 59, 59)"}}>-52%</td>
             </tr>
         </table>
     </div>

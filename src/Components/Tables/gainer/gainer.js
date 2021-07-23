@@ -24,21 +24,22 @@ const data = {
             label: 'Amount',
             data: [12, 27, 34, 66, 54, 89,92],
             fill: false,
-            backgroundColor: 'rgba(38,76,125,0.5)',
-            borderColor: 'rgb(38,76,125)',
+            backgroundColor: 'rgba(11,184,157,0.2)',
+            borderColor: 'rgba(11,184,157,1)',
         },
     ],
 };
 
 const options = {
     scales: {
-        y: [
-            {
-                ticks: {
-                    beginAtZero: true,
-                },
-            },
-        ],
+        y: {
+            position:'right',
+            beginAtZero: true,
+        },
+        x: {
+            rtl:true,
+            reverse:true
+        },
     },
 };
 

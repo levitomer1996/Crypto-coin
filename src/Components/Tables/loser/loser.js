@@ -39,14 +39,14 @@ const data = {
 
 const options = {
     scales: {
-        y: [
-            {
-                position:'right',
-                ticks: {
-                    beginAtZero: true,
-                },
-            },
-        ],
+        y: {
+            position:'right',
+            beginAtZero: true,
+        },
+        x: {
+            rtl:true,
+            reverse:true
+        },
     },
 };
 

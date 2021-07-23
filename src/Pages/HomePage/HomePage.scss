@@ -1,46 +1,48 @@
 .homepage {
   min-height: 100vh;
-  padding: 30px 50px;
+  padding: 30px 20px;
+  position: relative;
   .wrapper {
+    position: relative;
+
     max-width: 100%;
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-areas:
       "advertise advertise"
       "sidebar tables";
-    column-gap: 20px;
-    row-gap: 20px;
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
     .advertise {
       grid-area: advertise;
       height: 10vh;
     }
-    .sidebar {
-      grid-area: sidebar;
-      background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-      border-radius: 10px;
-      padding: 10px;
-      max-height: 300px;
-    }
     .tables {
+      z-index: 0;
       grid-area: tables;
       display: grid;
-      grid-template-columns: repeat(3,1fr);
-      row-gap: 20px;
-      column-gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 20px;
+      grid-column-gap: 20px;
       grid-template-areas:
-        "total_coin_value total_coin_value total_coin_value"
+        "total_wallet_value total_wallet_value total_wallet_value"
         "your_coins your_coins total_assets_amt"
         "gainer loser coin_info";
       max-height: 100%;
-      .total_coin_value, .total_assets_amt, .your_coins,.gainer, .loser, .coin_info{
+      .total_wallet_value,
+      .total_assets_amt,
+      .your_coins,
+      .gainer,
+      .loser,
+      .coin_info {
         background-color: #27293e;
         color: #fff;
         border-radius: 10px;
         direction: rtl;
         text-align: right;
       }
-      .total_coin_value {
-        grid-area: total_coin_value;
+      .total_wallet_value {
+        grid-area: total_wallet_value;
       }
       .your_coins {
         grid-area: your_coins;
@@ -48,14 +50,14 @@
       .total_assets_amt {
         grid-area: total_assets_amt;
       }
-      .gainer{
+      .gainer {
         grid-area: gainer;
       }
-      .loser{
-        grid-area:loser;
+      .loser {
+        grid-area: loser;
       }
-      .coin_info{
-        grid-area:coin_info;
+      .coin_info {
+        grid-area: coin_info;
       }
     }
   }

@@ -1,0 +1,41 @@
+.sidebar {
+  grid-area: sidebar;
+  background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+  border-radius: 10px;
+  padding: 10px;
+  height: 400px;
+  grid-area: sidebar;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2%;
+  .nav-list {
+    text-align: center;
+    padding: 0;
+    .nav-items {
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+      .nav-link {
+        margin: 10px 0px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        opacity: 0.8;
+        font-weight: 300;
+        letter-spacing: 1px;
+        position: relative;
+        padding: 5px 0;
+        transition: all 0.2s;
+        &:hover {
+          opacity: 1;
+          color: #fcce8a;
+        }
+      }
+      .links_hr {
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 50%;
+        margin-inline: auto;
+      }
+    }
+  }
+}
